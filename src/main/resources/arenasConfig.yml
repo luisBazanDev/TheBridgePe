@@ -1,0 +1,17 @@
+arenas:
+  the-bridge:
+    build-box:
+      min: [-5, 50, -10]
+      max: [5, 80, 10]
+    red-spawn:
+      x: 10
+      Y: 90
+      z: 0
+      yaw: 0
+      pitch: 0
+    blue-spawn:
+      x: 10
+      Y: 90
+      z: 0
+      yaw: 0
+      pitch: 0

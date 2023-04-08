@@ -1,0 +1,12 @@
+name: TheBridgePe
+version: '${project.version}'
+main: pe.bazan.luis.plugins.thebridgepe.TheBridgePe
+api-version: 1.19
+depend:
+  - Multiverse-Core
+  - WorldEdit
+authors: [Luis Bazan]
+commands:
+  thebridge:
+    permission: thebridgepe.commands.thebridge
+    permission-message: "Idk"
