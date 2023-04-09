@@ -9,6 +9,7 @@ import pe.bazan.luis.plugins.thebridgepe.TheBridgePe;
 
 import javax.annotation.Nullable;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 
 public class Schematics {
@@ -37,10 +38,9 @@ public class Schematics {
             // Load default schematics
             for (String fileName : new String[]{"blue-box.schem", "red-box.schem"}) {
                 try {
-                    InputStream inputStream = Schematics.class.getResourceAsStream(new File(new File("schematics"), fileName).getAbsolutePath());
-                    FileUtils.copyInputStreamToFile(inputStream, new File(schematicsDirectory, fileName));
-
-                } catch (IOException e) {
+                    File schemFile = new File(TheBridgePe.getInstance().getClass().getResource("/schematics/" + fileName).toURI());
+                    FileUtils.copyFile(schemFile, new File(schematicsDirectory, fileName));
+                } catch (IOException | URISyntaxException e) {
                     e.printStackTrace();
                 }
             }
