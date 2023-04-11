@@ -4,12 +4,10 @@ import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
-import org.apache.commons.io.FileUtils;
 import pe.bazan.luis.plugins.thebridgepe.TheBridgePe;
 
 import javax.annotation.Nullable;
 import java.io.*;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 
 public class Schematics {
@@ -38,9 +36,15 @@ public class Schematics {
             // Load default schematics
             for (String fileName : new String[]{"blue-box.schem", "red-box.schem"}) {
                 try {
-                    File schemFile = new File(TheBridgePe.getInstance().getClass().getResource("/schematics/" + fileName).toURI());
-                    FileUtils.copyFile(schemFile, new File(schematicsDirectory, fileName));
-                } catch (IOException | URISyntaxException e) {
+//                    File schemFile = new File(TheBridgePe.getInstance().getClass().getResource("/schematics/" + fileName).toURI());
+//                    FileUtils.copyFile(schemFile, new File(schematicsDirectory, fileName));
+                    File outfile = new File(schematicsDirectory, fileName);
+
+                    InputStreamReader inputStreamReader = new InputStreamReader(TheBridgePe.getInstance().getResource("schematics/" + fileName));
+                    Writer out = new OutputStreamWriter(new FileOutputStream(outfile));
+                    inputStreamReader.transferTo(out);
+                    out.close();
+                } catch (IOException | NullPointerException e) {
                     e.printStackTrace();
                 }
             }
