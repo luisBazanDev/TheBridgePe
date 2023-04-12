@@ -35,4 +35,8 @@ public final class TheBridgePe extends JavaPlugin {
     public WorldManager getWorldManager() {
         return worldManager;
     }
+
+    public ArenasConfig getArenasConfig() {
+        return arenasConfig;
+    }
 }
