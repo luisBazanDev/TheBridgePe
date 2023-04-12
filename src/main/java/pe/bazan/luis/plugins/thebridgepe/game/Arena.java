@@ -87,4 +87,9 @@ public class Arena {
     public @Nullable ArenaTeam team(Color color) {
         return teams.get(color);
     }
+
+    public boolean containsPlayer(Player player) {
+        return teams.get(Color.BLUE).containsPlayer(player)
+                || teams.get(Color.RED).containsPlayer(player);
+    }
 }

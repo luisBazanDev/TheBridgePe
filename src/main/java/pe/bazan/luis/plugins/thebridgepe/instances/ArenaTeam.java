@@ -27,4 +27,8 @@ public class ArenaTeam {
     public Arena getArena() {
         return arena;
     }
+
+    public boolean containsPlayer(Player player) {
+        return players.contains(player);
+    }
 }

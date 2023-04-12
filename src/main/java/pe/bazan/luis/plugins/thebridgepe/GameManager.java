@@ -5,8 +5,8 @@ import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import pe.bazan.luis.plugins.thebridgepe.game.Arena;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -41,5 +41,13 @@ public class GameManager {
             arena.setPlayers(Color.RED, (Player[]) redTeam.toArray());
             arenas.add(arena);
         }
+    }
+
+    public @Nullable Arena getArenaFromPlayer(Player player) {
+        for (Arena arena : arenas) {
+            if (arena.containsPlayer(player)) return arena;
+        }
+
+        return null;
     }
 }
