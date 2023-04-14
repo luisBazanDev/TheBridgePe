@@ -16,7 +16,7 @@ public class GameManager {
     private List<MultiverseWorld> freeWorlds;
     private int playersPerTeam;
 
-    public GameManager(int arenas, List<Player> players, int playersPerTeam) {
+    public GameManager(List<Player> players, int playersPerTeam) {
         this.players = players;
         this.playersPerTeam = playersPerTeam;
 
@@ -41,6 +41,10 @@ public class GameManager {
             arena.setPlayers(Color.RED, (Player[]) redTeam.toArray());
             arenas.add(arena);
         }
+    }
+
+    public void stop() {
+        TheBridgePe.getInstance().setCurrentGame(null);
     }
 
     public @Nullable Arena getArenaFromPlayer(Player player) {
