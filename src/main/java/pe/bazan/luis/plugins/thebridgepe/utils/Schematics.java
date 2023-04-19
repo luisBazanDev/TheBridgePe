@@ -36,15 +36,8 @@ public class Schematics {
             // Load default schematics
             for (String fileName : new String[]{"blue-box.schem", "red-box.schem"}) {
                 try {
-//                    File schemFile = new File(TheBridgePe.getInstance().getClass().getResource("/schematics/" + fileName).toURI());
-//                    FileUtils.copyFile(schemFile, new File(schematicsDirectory, fileName));
-                    File outfile = new File(schematicsDirectory, fileName);
-
-                    InputStreamReader inputStreamReader = new InputStreamReader(TheBridgePe.getInstance().getResource("schematics/" + fileName));
-                    Writer out = new OutputStreamWriter(new FileOutputStream(outfile));
-                    inputStreamReader.transferTo(out);
-                    out.close();
-                } catch (IOException | NullPointerException e) {
+                    TheBridgePe.getInstance().saveResource("schematics/"+fileName, false);
+                } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
             }
