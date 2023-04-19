@@ -46,13 +46,13 @@ public class Schematics {
 
                     try (EditSession editSession = WorldEdit.getInstance().newEditSession(new BukkitWorld(player.getWorld()))) {
                         Operation operation = new ClipboardHolder(clipboard)
-                                .createPaste(WorldEdit.getInstance().newEditSession(new BukkitWorld(player.getWorld())))
+                                .createPaste(editSession)
                                 .to(BlockVector3.at(
                                         player.getLocation().getX(),
                                         player.getLocation().getY(),
                                         player.getLocation().getZ()
                                 ))
-                                .ignoreAirBlocks(false)
+                                .ignoreAirBlocks(true)
                                 .build();
                         try {
                             Operations.complete(operation);
