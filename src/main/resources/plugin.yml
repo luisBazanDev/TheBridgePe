@@ -1,5 +1,5 @@
 name: TheBridgePe
-version: '${project.version}'
+version: '1.0'
 main: pe.bazan.luis.plugins.thebridgepe.TheBridgePe
 api-version: 1.19
 depend:
